@@ -1,11 +1,11 @@
 apiVersion: v2
 name: seaweedfs-operator
 description: Master chart to deploy SeaweedFS Operator
-version: 1.0.0
+version: 1.0.1
 home: >-
   https://github.com/lightning-it/helm-charts/tree/main/charts/seaweedfs-operator
 dependencies:
   - name: seaweedfs-operator
-    version: 0.1.39
+    version: 0.1.46
     repository: https://seaweedfs.github.io/seaweedfs-operator/
 
