@@ -130,6 +130,11 @@
       },
       "type": "object"
     },
+    "nodePlacement": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": "object"
+    },
     "root_ca": {}
   },
   "title": "openshift-ingressoperatorpatch values",

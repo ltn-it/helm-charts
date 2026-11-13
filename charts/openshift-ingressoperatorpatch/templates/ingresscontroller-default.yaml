@@ -7,6 +7,10 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
+{{- with .Values.nodePlacement }}
+  nodePlacement:
+{{ toYaml . | indent 4 }}
+{{- end }}
   routeAdmission:
     wildcardPolicy: {{- if .Values.allowWildcards }} WildcardsAllowed {{- else }} WildcardsDisallowed {{- end }}
 {{- if .Values.ingress.enabled }}
