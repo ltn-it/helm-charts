@@ -1,6 +1,9 @@
 ---
 allowWildcards: true
 
+# Optional native IngressController placement; empty preserves operator defaults.
+nodePlacement: {}
+
 ingress:
   enabled: false
   certificateSecret: cert-default-ingress
