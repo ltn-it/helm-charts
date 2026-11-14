@@ -5,54 +5,54 @@ waivers:
     owner: platform-engineering
     reason: The pinned upstream Vault operator reconciles every resource in its own vault.banzaicloud.com API group.
     compensating_control: The permission is limited to the operator-owned API group and the operator runs under a dedicated service account.
-    expires: 2026-10-31
+    expires: 2026-11-30
   - id: charts/banzai-vault-operator:ClusterRole:default/lit-quality-vault-operator:no-rbac-wildcards:0-verbs
     owner: platform-engineering
     reason: The pinned upstream Vault operator requires lifecycle access to all Vault custom resources.
     compensating_control: The permission is limited to the operator-owned API group and the operator runs under a dedicated service account.
-    expires: 2026-10-31
+    expires: 2026-11-30
   - id: charts/banzai-vault-operator:ClusterRole:default/lit-quality-vault-operator:no-rbac-wildcards:1-verbs
     owner: platform-engineering
     reason: The pinned upstream Vault operator manages the complete lifecycle of the enumerated core resources.
     compensating_control: Resources are explicitly enumerated and the operator service account is not shared with workloads.
-    expires: 2026-10-31
+    expires: 2026-11-30
   - id: charts/banzai-vault-operator:ClusterRole:default/lit-quality-vault-operator:no-rbac-wildcards:4-verbs
     owner: platform-engineering
     reason: The pinned upstream Vault operator manages the complete lifecycle of its enumerated workload resources.
     compensating_control: Resources are explicitly enumerated and changes remain observable through Kubernetes audit logging.
-    expires: 2026-10-31
+    expires: 2026-11-30
   - id: charts/banzai-vault-operator:ClusterRole:default/lit-quality-vault-operator:no-rbac-wildcards:8-verbs
     owner: platform-engineering
     reason: The pinned upstream Vault operator implements leader election through Lease lifecycle operations.
     compensating_control: Access is limited to coordination.k8s.io leases and a dedicated operator service account.
-    expires: 2026-10-31
+    expires: 2026-11-30
   - id: charts/banzai-vault-secrets-webhook:Secret:default/lit-quality-vault-secrets-webhook-webhook-tls:no-literal-secret
     owner: platform-engineering
     reason: The pinned upstream chart generates an ephemeral webhook certificate during rendering instead of embedding a repository secret.
     compensating_control: The generated certificate is release-scoped, not sourced from Git, and is rotated when the Helm release is recreated.
-    expires: 2026-10-31
+    expires: 2026-11-30
   - id: charts/rook-ceph-operator:Deployment:default/ceph-csi-controller-manager:seccomp
     owner: platform-engineering
     reason: The pinned upstream Rook dependency does not expose a pod-level seccomp override for the CSI controller manager.
     compensating_control: The namespace enforces the platform Pod Security profile and the dependency is pinned and Renovate-managed.
-    expires: 2026-10-31
+    expires: 2026-11-30
   - id: charts/rook-ceph-operator:Deployment:default/rook-ceph-operator:run-as-non-root
     owner: platform-engineering
     reason: The pinned upstream Rook chart applies runAsNonRoot at container level but exposes no equivalent pod-level value.
     compensating_control: The operator container is explicitly configured with runAsNonRoot and a non-root UID and GID.
-    expires: 2026-10-31
+    expires: 2026-11-30
   - id: charts/rook-ceph-operator:Deployment:default/rook-ceph-operator:seccomp
     owner: platform-engineering
     reason: The pinned upstream Rook chart does not expose a pod-level seccomp override for the operator.
     compensating_control: The namespace enforces the platform Pod Security profile and the dependency is pinned and Renovate-managed.
-    expires: 2026-10-31
+    expires: 2026-11-30
   - id: charts/rook-ceph-operator:Deployment:default/rook-ceph-operator:readiness-probe:rook-ceph-operator
     owner: platform-engineering
     reason: The pinned upstream Rook operator chart does not expose a readiness probe and has no stable readiness endpoint in the chart contract.
     compensating_control: Deployment availability and operator reconciliation health are monitored by Kubernetes and platform alerts.
-    expires: 2026-10-31
+    expires: 2026-11-30
   - id: charts/rook-ceph-operator:Deployment:default/rook-ceph-operator:liveness-probe:rook-ceph-operator
     owner: platform-engineering
     reason: The pinned upstream Rook operator chart does not expose a liveness probe and has no stable liveness endpoint in the chart contract.
     compensating_control: Kubernetes restarts failed processes and platform monitoring alerts on unavailable reconciliation.
-    expires: 2026-10-31
+    expires: 2026-11-30

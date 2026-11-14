@@ -311,7 +311,7 @@ console:
 
 YAML Samples can be added to specific Kubernetes manifests, to allow customization of the help that will be shown in the WebUI.
 
-The following example will add such a Sample for the Secret resource:
+The following example will add such a Sample for the Secret resource. Replace the password placeholder locally before creating the Secret:
 
 ```yaml
   yamlsamples:
@@ -330,7 +330,7 @@ The following example will add such a Sample for the Secret resource:
             type: Opaque
             stringData:
               email: youremail@address.com
-              password: YourSuperPassword
+              password: "<set-a-unique-password>"
 ```
 
 Whenever somebody wants to create a new Secret, the Samples can be "tried" or downloaded.
