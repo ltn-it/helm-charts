@@ -1,0 +1,17 @@
+apiVersion: v2
+name: minio-object-store-operator
+description: Master chart to deploy and configure MinIO AIStor
+version: 1.0.0
+home: >-
+  https://github.com/lightning-it/helm-charts/tree/main/charts/minio-object-store-operator
+dependencies:
+  - name: helper-operator
+    repository: https://github.com/lightning-it/helm-charts/tree/main/charts/helper-operator
+    version: 1.0.29
+  - condition: helper-status-checker.enabled
+    name: helper-status-checker
+    repository: https://github.com/lightning-it/helm-charts/tree/main/charts/helper-status-checker
+    version: 4.0.20
+  - name: tpl
+    version: ~1.0.0
+    repository: https://charts.stderr.at/

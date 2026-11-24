@@ -1,0 +1,33 @@
+---
+vanillaK8s: false
+# Using sub-chart helper-operator
+helper-operator:
+  operators:
+    minio-object-store-operator:
+      enabled: true
+      syncwave: '0'
+      namespace:
+        name: aistor
+        create: false
+      subscription:
+        channel: stable
+        approval: Manual
+        operatorName: minio-object-store-operator
+        source: certified-operators
+        sourceNamespace: openshift-marketplace
+        csv: minio-object-store-operator.v2026.11.13230251
+      operatorgroup:
+        create: true
+        notownnamespace: true
+
+# Using sub-chart helper-status-checker
+helper-status-checker:
+  enabled: true
+  approver: true
+  checks:
+    - operatorName: minio-object-store-operator
+      installCSV: minio-object-store-operator.v2026.11.13230251
+      namespace:
+        name: aistor
+      serviceAccount:
+        name: "sa-minio-object-store-operator"
